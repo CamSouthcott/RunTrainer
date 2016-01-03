@@ -11,4 +11,23 @@
         <item name="android:background">#FFF</item>
     </style>
 
+    <style name="NotificationStyle" parent="AppTheme">
+
+    </style>
+
+    <style name="NotificationTitle" parent="NotificationStyle">
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="NotificationButton" parent="NotificationStyle">
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="RecordsTitle" parent="AppTheme">
+    </style>
+
+    <style name="RecordsData" parent="AppTheme">
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

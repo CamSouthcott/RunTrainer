@@ -25,9 +25,9 @@ public class TimerService extends Service {
     private static boolean training;
 
 
-    Timer runTimer;
+    private Timer runTimer;
     private boolean timerRunning = false;
-    int mWalkTime,mRunTime,mPeriod;
+    private int mWalkInterval,mRunInterval,mPeriod;
 
     @Override
     public void onCreate() {
@@ -77,13 +77,13 @@ public class TimerService extends Service {
             mWalkSound.setVolume((float) (volume*.01),(float) (volume*.01));
 
             //Don't Run Timer if RunTime was not received
-            mRunTime = intent.getIntExtra("runTime",0);
-            if(mRunTime > 0) {
+            mRunInterval = intent.getIntExtra("runInterval",0);
+            if(mRunInterval > 0) {
 
                 //If walktime is 0, dont play training sounds
-                mWalkTime = intent.getIntExtra("walkTime",0);
-                mPeriod = mRunTime + mWalkTime;
-                training = (mWalkTime > 0);
+                mWalkInterval = intent.getIntExtra("walkInterval",0);
+                mPeriod = mRunInterval + mWalkInterval;
+                training = (mWalkInterval > 0);
 
                 createForegroundNotification();
 
@@ -97,7 +97,7 @@ public class TimerService extends Service {
                             if (time % mPeriod == 0) {
                                 mRunSound.start();
                                 Log.e("TimerThread","Run Sound");
-                            } else if ((time - mRunTime) % mPeriod == 0) {
+                            } else if ((time - mRunInterval) % mPeriod == 0) {
                                 mWalkSound.start();
                                 Log.e("TimerThread", "Walk Sound");
                             }
@@ -109,6 +109,7 @@ public class TimerService extends Service {
 
                         time++;
                     }
+
                 }, 0, 10);
             }
         }
@@ -116,9 +117,11 @@ public class TimerService extends Service {
 
     private void stopRun() {
 
-        runTimer.cancel();
+        if(runTimer != null) {
+            runTimer.cancel();
 
-        removeForegroundNotification();
+            removeForegroundNotification();
+        }
 
         timerRunning = false;
     }
