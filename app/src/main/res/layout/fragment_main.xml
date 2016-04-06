@@ -121,9 +121,9 @@
         android:background="@drawable/notification_background"
         android:layout_centerInParent="true"
         android:visibility="invisible"
-        android:id="@+id/savePromptLayout"
         android:orientation="vertical"
-        style="@style/NotificationStyle">
+        style="@style/NotificationStyle"
+        android:id="@+id/savePromptLayout">
 
         <TextView
             android:layout_width="wrap_content"

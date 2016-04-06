@@ -5,10 +5,12 @@ package com.camsouthcott.runtrainer;
  */
 public class Run {
     private int runID, runTime, runInterval, walkInterval;
-    private String runDate;
+    private long runDate;
+    private Integer globalRunID;
 
-    public Run(int runID, int runTime, String runDate, int runInterval, int walkInterval){
+    public Run(int runID, Integer globalRunID, int runTime, long runDate, int runInterval, int walkInterval){
         this.runID = runID;
+        this.globalRunID = globalRunID;
         this.runTime = runTime;
         this.runDate = runDate;
         this.runInterval = runInterval;
@@ -19,11 +21,15 @@ public class Run {
         return runID;
     }
 
+    public Integer getGlobalRunID(){
+        return globalRunID;
+    }
+
     public int getRunTime(){
         return runTime;
     }
 
-    public String getRunDate(){
+    public long getRunDate(){
         return runDate;
     }
 

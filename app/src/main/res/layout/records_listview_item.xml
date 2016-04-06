@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,49 +7,108 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date:"
-        style="@style/RecordsTitle"/>
+        style="@style/RecordsTitle"
+        android:id="@+id/runDateTitle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/runDateTextView"
-        style="@style/RecordsData"/>
+        style="@style/RecordsData"
+        android:layout_below="@id/runDateTitle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Duration:"
-        style="@style/RecordsTitle"/>
+        style="@style/RecordsTitle"
+        android:id="@+id/runTimeTitle"
+        android:layout_below="@id/runDateTextView"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/runTimeTextView"
-        style="@style/RecordsData"/>
+        style="@style/RecordsData"
+        android:layout_below="@id/runTimeTitle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Run Interval"
-        style="@style/RecordsTitle"/>
+        style="@style/RecordsTitle"
+        android:id="@+id/runIntervalTitle"
+        android:layout_below="@id/runTimeTextView"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/RecordsData"
-        android:id="@+id/runIntervalTextView"/>
+        android:id="@+id/runIntervalTextView"
+        android:layout_below="@id/runIntervalTitle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Walk Interval"
-        style="@style/RecordsTitle"/>
+        style="@style/RecordsTitle"
+        android:id="@+id/walkIntervalTitle"
+        android:layout_below="@id/runIntervalTextView"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/RecordsData"
-        android:id="@+id/walkIntervalTextView"/>
+        android:id="@+id/walkIntervalTextView"
+        android:layout_below="@id/walkIntervalTitle"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/deleteButton"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deletePrompt"
+        android:background="@drawable/notification_background"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:orientation="vertical"
+        style="@style/NotificationStyle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete?"
+            android:id="@+id/deletePromptTitle"
+            android:layout_centerHorizontal="true"
+            style="@style/NotificationTitle"
+            android:orientation="vertical" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:id="@+id/deletePromptYesButton"
+            android:layout_below="@id/deletePromptTitle"
+            android:background="@drawable/button"
+            style="@style/NotificationButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:id="@+id/deletePromptNoButton"
+            android:layout_toRightOf="@id/deletePromptYesButton"
+            android:layout_below="@id/deletePromptTitle"
+            android:background="@drawable/button"
+            style="@style/NotificationButton"/>
+
+    </RelativeLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

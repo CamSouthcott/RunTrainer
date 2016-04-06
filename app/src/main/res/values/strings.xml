@@ -3,4 +3,18 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="server_base_url">https://runtrainer-camsouthcott.rhcloud.com/api/</string>
+    <string name="server_public_key">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRkIjx1fuDPVoUfV/ywAHPBEoTT1nfIz1dCwBNNKdYHQpxT7s0i1ssAMT+aFH2Vn60+ttbxPWgsCujFVhVPY/bnQSewGgU73WCTkZwB0ggzeMIe+p+rZoGrE/nOhRcNMDJUVVkt0UZ+TOX/gM0qX5DWua5taJwkFCFkYNR8HRgdQIDAQAB</string>
+    <string name="username_parameter_tag">username</string>
+    <string name="password_parameter_tag">password</string>
+    <string name="run_time_parameter_tag">time</string>
+    <string name="run_date_parameter_tag">date</string>
+    <string name="run_run_interval_parameter_tag">runInterval</string>
+    <string name="run_walk_interval_parameter_tag">walkInterval</string>
+    <string name="run_last_update_id_parameter_tag">lastUpdateID</string>
+    <string name="run_global_id_parameter_tag">runID</string>
+
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_registration">Registration</string>
 </resources>

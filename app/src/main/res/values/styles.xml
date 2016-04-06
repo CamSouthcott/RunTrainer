@@ -15,6 +15,11 @@
 
     </style>
 
+    <style name="ErrorText" parent="AppTheme">
+        <item name="android:textColor">#F00</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
     <style name="NotificationTitle" parent="NotificationStyle">
         <item name="android:layout_margin">10dp</item>
     </style>

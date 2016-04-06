@@ -18,6 +18,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.camsouthcott.runtrainer.security.UserCredentialsManager;
+
+import java.util.Date;
+
 public class MainFragment extends Fragment {
 
     private TextView timerTextView;
@@ -26,6 +30,7 @@ public class MainFragment extends Fragment {
     private RelativeLayout savePromptLayout;
     private ScrollView mainScrollView;
     private Integer runTime;
+    private long runStartDate;
 
     @Nullable
     @Override
@@ -157,6 +162,7 @@ public class MainFragment extends Fragment {
         Intent intent = new Intent(getContext(), TimerService.class);
         intent.setAction(TimerService.TIMER_START);
         int runInterval = getRunInterval();
+        runStartDate = new Date().getTime();
 
         if(runInterval > 0) {
             disableNumberPickers();
@@ -215,7 +221,8 @@ public class MainFragment extends Fragment {
     }
 
     private void saveRun(){
-        new RunsDBManager(getContext()).insertRun(getContext(),runTime,getRunInterval(),getWalkInterval());
+
+        new RunsDBManager(getContext()).insertRun(getContext(),UserCredentialsManager.getUsername(getContext()),runTime,null,runStartDate,getRunInterval(),getWalkInterval());
     }
 
     private void closeSaveRunPrompt(){
@@ -268,6 +275,7 @@ public class MainFragment extends Fragment {
 
     public static String intToTime(int intTime){
 
+        //Formatting function for the run time display
         //Converts a integer to a time string of format X:XX:XX:XX
         String stringTime = "";
 
